@@ -20,7 +20,6 @@ var sess = {
 
 require('./api/db');
 
-
 require('./api/back_office/auth/passport')(passport);
 
 app.use(morgan('dev'));
