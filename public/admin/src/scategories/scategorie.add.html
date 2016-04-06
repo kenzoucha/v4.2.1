@@ -1,0 +1,13 @@
+<h4 class="header">Ajouter Catégorie</h4>
+<div class="card-panel">
+    <form class="col s12" name="scat">
+        <form-field record="scategory" field="category" categories="categories"></form-field>
+        <form-field record="scategory" field="designation" focus="focus"></form-field>
+        <form-field record="scategory" field="description" focus="focus"></form-field>
+        <form-field ng-repeat="(k,v) in scategory | keyFilter: 'designation' |  keyFilter: 'description' | keyFilter: 'category'" record="scategory" field="{{k}}"></form-field>
+        <new-field record="scategory"></new-field>
+        <button class="btn pink" ng-click="addSCategory()">Enregister
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>

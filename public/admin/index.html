@@ -1,0 +1,167 @@
+<!doctype html>
+<html ng-app="StockDeal">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="lib/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <!-- sweet alert -->
+    <link rel="stylesheet" href="assets/app.css"/>
+    <!-- Toaster Stylesheet-->
+    <link rel="stylesheet" href="lib/AngularJS-Toaster/toaster.min.css"/>
+
+    <link rel="stylesheet" href="lib/css/admin.css"/>
+
+    <!-- Import Jquery -->
+    <script src="lib/jquery/jquery-1.12.0.min.js"></script>
+    <!-- Import Materlialize Js -->
+    <script src="lib/materialize/js/materialize.min.js"></script>
+    <!--Import angular-->
+    <script src="lib/angular/angular.min.js"></script>
+    <!--Import angualr ui-router-->
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!--Import angular animate-->
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <!-- Import ngMessages for angular-->
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
+
+
+</head>
+<body ng-model="auth">
+
+<nav ng-show="auth">
+    <ul class="right">
+        <li><a href="#!">First Sidebar Link</a></li>
+        <li><a ui-sref="logout"><i class="material-icons">input</i></a></li>
+    </ul>
+    <ul id="slide-out" class="side-nav">
+        <li><a href="#!">First Sidebar Link</a></li>
+        <li><a href="#!">Second Sidebar Link</a></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header">catégorie<i class="mdi-navigation-arrow-drop-down"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a ui-sref="categories.list"> list Categories</a></li>
+                            <li class="divider"></li>
+                            <li><a ui-sref="categories.add">Ajouter Categorie</a></li>
+                            <li class="no-padding">
+                                <ul class="collapsible collapsible-accordion">
+                                    <li>
+                                        <a class="collapsible-header">sous catégorie<i class="mdi-navigation-arrow-drop-down"></i></a>
+                                        <div class="collapsible-body">
+                                            <ul class="collapsible collapsible-accordion">
+                                                <li><a ui-sref="scategories.list"> Listes sous Categories</a></li>
+                                                <li class="divider"></li>
+                                                <li><a ui-sref="scategories.add">Ajouter  sous Categorie</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu material-icons">menu</i></a>
+</nav>
+
+    <div class="container">
+        <ui-view name="home-view"></ui-view>
+        <script id="templates/main.html" type="text/ng-template">
+            <ui-view name="add-view"></ui-view>
+            <ui-view name="list-view"></ui-view>
+            <ui-view name="edit-view"></ui-view>
+            <ui-view name="addper-view"></ui-view>
+            <ui-view name="lock-view"></ui-view>
+        </script>
+        <script id="templates/login.html" type="text/ng-template">
+            <div id="login-page" class="row">
+                <div class="col s12 z-depth-4 card-panel">
+                    <form class="login-form">
+                        <div class="row">
+                            <div class="input-field col s12 center">
+                                <img src="images/login-logo.png" alt="" class="circle responsive-img valign profile-image-login">
+                                <p class="center login-form-text">StockDeal</p>
+                            </div>
+                        </div>
+                        <div class="row margin">
+                            <div class="input-field col s12">
+                                <i class="mdi-social-person-outline prefix"></i>
+                                <input id="username" type="text" ng-model="admin.username">
+                                <label for="username" class="center-align">Username</label>
+                            </div>
+                        </div>
+                        <div class="row margin">
+                            <div class="input-field col s12">
+                                <i class="mdi-action-lock-outline prefix"></i>
+                                <input id="password" type="password" ng-model="admin.password">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button type="button" class="btn waves-effect waves-light col s12"  ng-click="login()">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </script>
+    </div>
+    <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+
+
+
+<!--Import angular toaster-->
+<script src="lib/AngularJS-Toaster/toaster.min.js"></script>
+<!--Import Angular resource-->
+<script src="lib/angular-resource/angular-resource.min.js"></script>
+<!--Import Angular File Upload-->
+<script src="lib/ng-file-upload/ng-file-upload.min.js"></script>
+<!--My application-->
+<script src="src/app.js"></script>
+
+<script src="src/products/products.js"></script>
+<script src="src/products/products-service.js"></script>
+
+<script src="src/categories/categories.js"></script>
+<script src="src/categories/categories-service.js"></script>
+
+<script src="src/scategories/scategories.js"></script>
+<script src="src/scategories/scategories-service.js"></script>
+
+<script src="src/common/utils-service.js"></script>
+<script src="src/controllers.js"></script>
+<script src="src/directives.js"></script>
+<script src="src/filters.js"></script>
+<script src="src/factories.js"></script>
+
+<script>
+    $('.button-collapse').sideNav({
+            //    menuWidth: 300, // Default is 240
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            }
+    );
+
+
+    // $(".button-collapse").sideNav();
+    $('.dropdown-toggle').dropdown()
+    $('body').on('click', '.button-collapse', function() {
+        window.alert('too bad :(. This event will never be triggered because the sideNav is stopping propagation.');
+    });
+
+
+</script>
+
+</body>
+</html>

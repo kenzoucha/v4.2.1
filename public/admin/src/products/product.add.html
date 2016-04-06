@@ -1,0 +1,58 @@
+<h4 class="header">Ajouter Produit</h4>
+<div class="card-panel" >
+    <form class="col s12" ng-submit="addProduct()">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <input id="designation_prod" type="text" class="validate" ng-model="product.designation">
+                <label for="designation_prod">Désignation Produit</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="description_prod" class="materialize-textarea" ng-model="product.description"></textarea>
+                <label for="description_prod">Déscription Produit</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <input id="price_prod" type="text" class="validate" ng-model="product.price">
+                <label for="price_prod">Prix Produit</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <select class="browser-default" ng-model="product.scat" ng-change="showFields(product.scat)">
+                    <option value="" disabled selected>Choisir une catégorie</option>
+                    <optgroup ng-repeat="cat in categories" label="{{cat.designation}}">
+                        <option ng-repeat="s in cat.subCats" value="{{s._id}}">
+                            {{s.designation}}
+                        </option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-show="show" ng-repeat="field in scategory.fields">
+            <div class="input-field col s6" ng-repeat="(k,v) in field">
+                <div ng-if="v[2]">
+                    <select class="browser-default" ng-model="product.fields[k]">
+                        <option value="" disabled selected>{{k}}</option>
+                        <option ng-repeat="a in v[0] | ArrayList">{{a}}</option>
+                    </select>
+                </div>
+                <div ng-if="!v[2]">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <input type="{{v[1]}}" class="validate" ng-model="product.fields[k]">
+                    <label>{{k}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn pink" name="action">Enregister
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+</div>

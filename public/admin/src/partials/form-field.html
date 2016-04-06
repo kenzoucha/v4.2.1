@@ -1,0 +1,22 @@
+<div class="row" ng-form="field" ng-switch="record[field][1]">
+
+    <div class="input-field col s6" ng-switch-when="select">
+        <select ng-model="record[field][0]" class="browser-default">
+            <option value="" disabled selected>Lists Categories</option>
+            <option ng-repeat="cat in categories" value="{{cat._id}}">{{cat.designation}}</option>
+        </select>
+    </div>
+
+    <div class="input-field col s6" ng-switch-when="textarea">
+        <i class="material-icons prefix">mode_edit</i>
+        <textarea  class="materialize-textarea" ng-model="record[field][0]"></textarea>
+        <label ng-class="{active : focus == true}">{{field}}</label>
+    </div>
+
+    <div class="input-field col s6" ng-switch-default>
+        <i class="material-icons prefix">mode_edit</i>
+        <input type="{{record[field][1]}}" class="validate" ng-model="record[field][0]">
+        <label ng-class="{active : focus == true}">{{field}}</label>
+    </div>
+
+</div>

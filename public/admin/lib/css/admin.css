@@ -1,0 +1,35 @@
+nav a.button-collapse {
+    display: block;
+}
+.button-collapse {
+    color: #fff;
+}
+
+.toast-top-right {
+    top:inherit;
+}
+
+#toast-container {
+    bottom: 5% !important;
+    right: 5% !important;
+    top: auto !important;
+}
+
+.side-nav .collapsible-body li.active a, .side-nav.fixed .collapsible-body li.active a {
+    color: #01579b;
+}
+
+.side-nav .collapsible-header, .side-nav.fixed .collapsible-header {
+    background-color: #0277bd;
+
+}
+.side-nav .collapsible-header:hover, .side-nav.fixed .collapsible-header:hover,
+.side-nav .collapsible-header:focus, .side-nav.fixed .collapsible-header:focus  {
+    background-color: #29b6f6;
+
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 64px;
+    line-height: 64px;
+}
