@@ -1,5 +1,5 @@
 var Admin = require(appRoot + '/api/models/Admin');
-
+var bodyParser= require('body-parser');
 module.exports = function(router,passport) {
     router
         .post('/login',function (req, res) {
@@ -15,6 +15,7 @@ module.exports = function(router,passport) {
             })(req,res);
     });
     router
+        .use(bodyParser.urlencoded({ extented:false}))
         .post('/signup', passport.authenticate('local-signup'), function (req, res) {
          });
     router

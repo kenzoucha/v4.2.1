@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 
 var gracefulShutdown;
-
-var dbURI = 'mongodb://localhost/stockdeal'
+//mongodb://localhost/stockdeal
+//mongodb://admin:admin@ds055485.mongolab.com:55485/stockdeal
+var dbURI = 'mongodb://admin:admin@ds055485.mongolab.com:55485/stockdeal'
 
 mongoose.connect(dbURI);
 
